@@ -1,6 +1,7 @@
 var express = require("express"),
     bodyParser = require("body-parser"),
     methodOverride = require('method-override'),
+    expressSanitizer = require('express-sanitizer'),
     mongoose = require("mongoose"),
     app = express();
 
@@ -13,6 +14,7 @@ mongoose.connect("mongodb://127.0.0.1:27017/Blog_app", (err) => {
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(__dirname + "/public"));
 app.use(methodOverride("_method"));
+app.use(expressSanitizer());
 
 //default view engines
 app.set("view engine", "ejs");
