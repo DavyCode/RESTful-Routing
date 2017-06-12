@@ -1,0 +1,28 @@
+ .body-target {
+     margin: auto 0;
+     padding: 80px;
+     overflow-x: hidden;
+     min-width: 320px;
+     background: #FFF;
+     font-family: "Baloo", cursive;
+ }
+ 
+ i.icon {
+     font-size: 2em;
+ }
+ 
+ .container.main {
+     margin-top: 7.0em;
+ }
+ 
+ img {
+     width: 100%;
+ }
+ 
+ .ui.text.container {
+     font-family: "Baloo", cursive;
+ }
+ 
+ #delete {
+     display: inline;
+ }
