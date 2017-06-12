@@ -36,7 +36,7 @@ var Blog = mongoose.model("Blog", blogSchema);
 
 // Blog.create({
 //     title: "Tester Blog",
-//     image: '/images/1.jpg',
+//     image: '/images/3.jpg',
 //     body: "Hello just testing out this blog!!!"
 // })
 
@@ -64,6 +64,7 @@ app.get('/blogs/new', (req, res) => {
 // CREATE ROUTE
 app.post('/blogs', (req, res) => {
     //create new blog
+    req.body.blog.body = req.sanitize(req.body.blog.body)
     Blog.create(req.body.blog, (err, newBlog) => {
         if (err) {
             res.render('new')
@@ -89,6 +90,7 @@ app.get('/blogs/:id/edit', (req, res) => {
 
 // UPDATE ROUTE
 app.put('/blogs/:id', (req, res) => {
+    req.body.blog.body = req.sanitize(req.body.blog.body)
     Blog.findByIdAndUpdate(req.params.id, req.body.blog, (err, updatedBlog) => {
         (err) ? res.redirect('/blogs'): res.redirect('/blogs/' + req.params.id);
     });
